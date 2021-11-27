@@ -1,5 +1,5 @@
-import { useCatch, Link, json, useLoaderData } from "remix";
 import type { LoaderFunction, MetaFunction } from "remix";
+import { json, useCatch, useLoaderData } from "remix";
 
 // The `$` in route filenames becomes a pattern that's parsed from the URL and
 // passed to your loaders so you can look up data.
@@ -28,7 +28,7 @@ export let loader: LoaderFunction = async ({ params }) => {
   // Sometimes your code just blows up and you never anticipated it. Remix will
   // automatically catch it and send the UI to the error boundary.
   if (params.id === "kaboom") {
-    lol();
+    // lol();
   }
 
   // but otherwise the record was found, user has access, so we can do whatever

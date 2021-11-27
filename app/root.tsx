@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { LinksFunction } from "remix";
 import {
   Link,
   Links,
@@ -10,11 +11,8 @@ import {
   useCatch,
   useLocation
 } from "remix";
-import type { LinksFunction } from "remix";
-
-import deleteMeRemixStyles from "~/styles/demos/remix.css";
 import globalStylesUrl from "~/styles/global.css";
-import darkStylesUrl from "~/styles/dark.css";
+
 
 /**
  * The `links` export is a function that returns an array of objects that map to
@@ -26,13 +24,7 @@ import darkStylesUrl from "~/styles/dark.css";
  */
 export let links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: globalStylesUrl },
-    {
-      rel: "stylesheet",
-      href: darkStylesUrl,
-      media: "(prefers-color-scheme: dark)"
-    },
-    { rel: "stylesheet", href: deleteMeRemixStyles }
+    { rel: "stylesheet", href: globalStylesUrl }
   ];
 };
 
@@ -91,12 +83,6 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <a href="https://remix.run/docs">Remix Docs</a>
-              </li>
-              <li>
-                <a href="https://github.com/remix-run/remix">GitHub</a>
-              </li>
             </ul>
           </nav>
         </div>
@@ -104,11 +90,6 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
       <div className="remix-app__main">
         <div className="container remix-app__main-content">{children}</div>
       </div>
-      <footer className="remix-app__footer">
-        <div className="container remix-app__footer-content">
-          <p>&copy; You!</p>
-        </div>
-      </footer>
     </div>
   );
 }
